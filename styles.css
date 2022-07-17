@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Fuggles&family=League+Gothic&display=swap');
+header {
+    background-image: url(img/Biblioteca.png);
+    height: 750px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+p.titulo {
+    font-family: 'Fuggles', cursive;
+    font-size: 8.2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-top: -5rem;
+    margin-bottom: -4rem;
+    margin-left: -12rem;
+    color: black;
+}
+
+p.subtitulo {
+    font-family: 'League Gothic', sans-serif;
+    font-size: 5.3rem;
+    text-align: center;
+    margin-top: 0;
+    margin-left: 8rem;
+    color: black;
+}
+
+.line1 {
+    color: #000;
+    font-size: 12px;
+}
+
+.line2 {
+    color: #000;
+    font-size: 12px;
+}
+
+.line3 {
+    color: #000;
+    font-size: 12px;
+}
+
+.cards {
+    transition: all 0.2s ease;
+    cursor: pointer;
+    height: 230px;
+    background-color: #EBD8C3;
+}
+
+.card_hover {
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.cards:hover,
+.card_hover:hover {
+    box-shadow: 5px 6px 6px 2px #423F3E;
+    transform: scale(1.1);
+}
+
+.card-title {
+    font-family: 'League Gothic', sans-serif;
+    font-weight: 900;
+    font-size: 2rem;
+    color: black;
+}
+
+main {
+    background-color: #DCD0CF;
+    height: 1400px;
+    width: 100%;
+}
+
+#title_main {
+    font-family: 'League Gothic', sans-serif;
+    font-size: 4rem;
+    color: #2B2A2A;
+}
+
+section {
+    background-color: #DCD0CF;
+    height: 1024px;
+    width: 100%;
+}
+
+#title_section {
+    font-family: 'League Gothic', sans-serif;
+    font-size: 4rem;
+    color: #2B2A2A;
+}
+
+.btn_hover {
+    cursor: pointer;
+    border: none;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.btn_hover:hover {
+    background: #EBD8C3;
+    transform: translateY(-7px);
+    color: #2B2A2A;
+    box-shadow: 0px 10px 25px rgb(218, 184, 139);
+}
+
+#logo {
+    width: 250px;
+    height: 250px;
+    margin-top: 2rem;
+}
+
+#contacto {
+    font-family: 'League Gothic', sans-serif;
+    font-size: 2.5rem;
+    color: #2B2A2A;
+}
+
+footer {
+    background-color: #BEA5A1;
+    height: 150px;
+    width: 100%;
+}
+
+#footer_text {
+    font-size: 0.8rem;
+}
+
+.iconos {
+    height: 48px;
+    width: 48px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.header_login {
+    background-color: #EBD8C3;
+    height: 100px;
+    width: 100%;
+}
