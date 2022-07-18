@@ -1,8 +1,9 @@
 <?php
+session_start();
 require_once('Conexion.php');
 
 $recursos = new Conexion();
-$recursos = $recursos->consultar("SELECT * FROM recursos limit 6");
+$recursos = $recursos->consultar("SELECT * FROM recursos");
 ?>
 
 <!doctype html>
@@ -32,7 +33,7 @@ $recursos = $recursos->consultar("SELECT * FROM recursos limit 6");
                 <a class="nav-link" href="#"></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Salir</a>
+                <a class="nav-link" href="logout.php">Salir</a>
               </li>
             </ul>
           </div>
@@ -51,6 +52,11 @@ $recursos = $recursos->consultar("SELECT * FROM recursos limit 6");
     </div>
   <!--Tabla con los archivos ordenados que vendran de la BD-->
    </div>
+   <?php if(isset($_SESSION['mensaje'])){ ?>
+   <div class="alert alert-success" role="alert">
+      <?=$_SESSION['mensaje'];?>
+    </div>
+    <?php } ?>
    <div class="col-sm-12 mt-5">
     <table class="table table-light">
         <thead>
@@ -82,8 +88,12 @@ $recursos = $recursos->consultar("SELECT * FROM recursos limit 6");
                     data-imagen="<?=$recurso['imagen'];?>"
                     data-archivo="<?=$recurso['archivo'];?>"
                     class="btn btn-primary"><i class="fa-solid fa-pen"></i></button>
-                    <button type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                    <form action="delete.php" method="POST">
+                      <input type="hidden" name="id" value="<?=$recurso['id'];?>">
+                    <button type="submit" onclick="return confirm('¿Desea eliminar el recurso?')" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                    </form>
                 </div>
+          
             </td>
           </tr>
           <?php } ?>

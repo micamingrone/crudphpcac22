@@ -1,3 +1,29 @@
+<?php
+if(isset($_POST['usuario'])){
+    $usuario = $_POST["usuario"];
+    $password = md5($_POST["password"]);
+    if(!isset($usuario) || !isset($password)){
+        $error =1;
+    } else{
+        require_once('Conexion.php');
+
+        $conectar = new Conexion();
+        $usuario = $conectar->consultar("select usuario, password from users where usuario ='$usuario' and password ='$password'");
+        if(count($usuario)>0){
+            session_start();
+            $_SESSION['logueado'] = true;
+            $_SESSION['user'] = $usuario;
+            header('Location: panel.php');
+        }else{
+            $error = 2;
+        }
+    }
+    
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,14 +55,13 @@
             </div>
             <div class="col-md-8 col-lg-6 mb-5">
                 <div class="login-wrap p-0">
-                    <form action="#" class="signin-form">
+                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="signin-form" method="POST">
                         <div class="form-group">
-                            <input type="text" class="form-control border" placeholder="Usuario" required="">
+                            <input type="text" name="usuario" class="form-control border" placeholder="Usuario">
                         </div>
                         <div class="form-group">
-                            <input id="password-field" type="password" class="form-control border" placeholder="Contraseña" required="">
-                            <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-                        </div>
+                            <input type="password" name="password" class="form-control border" placeholder="Contraseña">
+                         </div>
                         <div class="form-group">
                             <button type="submit" class="form-control btn btn-primary submit px-3 mt-5">Entrar</button>
                         </div>
@@ -51,6 +76,28 @@
 <script>eval(mod_pagespeed_zB8NXha7lA);</script>
 <script>eval(mod_pagespeed_xfgCyuItiV);</script>
 <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194" integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw==" data-cf-beacon="{&quot;rayId&quot;:&quot;72bfe62dd819ba77&quot;,&quot;token&quot;:&quot;cd0b4b3a733644fc843ef0b185f98241&quot;,&quot;version&quot;:&quot;2022.6.0&quot;,&quot;si&quot;:100}" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+<?php if($error ==1){ ?>
+    Swal.fire({
+  title: 'Cuidado',
+  text: 'Las credenciales son incorrectas',
+  icon: 'error',
+  confirmButtonText: 'Entendido'
+}).then(()=>{
+    <?php $error = 0; ?>
+})
+<?php } elseif ($error == 2) { ?>
+    Swal.fire({
+  title: 'Cuidado',
+  text: 'El usuario no existe',
+  icon: 'error',
+  confirmButtonText: 'Entendido'
+}).then(()=>{
+    <?php $error = 0; ?>
+})
+<?php } ?>
+</script>
 
 
 </body>

@@ -22,7 +22,7 @@ $recursos = $recursos->consultar("SELECT * FROM recursos limit 6");
         <div class="container">
             <div class="col">
                 <div class="d-flex justify-content-end">
-                    <button type="button" class="btn btn-light m-5"><i class="fa-solid fa-arrow-right-to-bracket"></i> Ingresar</button>
+                    <a href="login.php" class="btn btn-light m-5"><i class="fa-solid fa-arrow-right-to-bracket"></i> Ingresar</a>
                 </div>
             </div>
 
