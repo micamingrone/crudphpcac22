@@ -1,4 +1,5 @@
 <?php 
+session_start();
 if(!isset($_POST['nombre']) && !isset($_POST['imagen'])){
     $_SESSION['error'] = 'Por favor introduzca los campos nombre e imagen';
 } else {

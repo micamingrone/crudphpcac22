@@ -1,4 +1,5 @@
 <?php 
+session_start();
 if(!isset($_POST['id'])){
     $_SESSION['error'] = 'No se encuentra el campo id';
 } else {
