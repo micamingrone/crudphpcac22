@@ -28,7 +28,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+        <button type="submit" onclick="return confirm('¿Desea modificar el recurso?')" class="btn btn-primary">Guardar cambios</button>
       </div>
     </div>
     </form>
