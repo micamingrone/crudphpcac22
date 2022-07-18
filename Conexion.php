@@ -13,7 +13,7 @@ class Conexion {
             $this->user = $env['USERNAME'];
             $this->pass = $env['PASSWORD'];
             $this->db = $env['DATABASE'];
-            $this->conexion = new PDO("mysql:host=$this->host;dbname=$this->db",$this->user,$this->pass);
+            $this->conexion = new PDO("mysql:host=$this->host;dbname=$this->db;charset=utf8",$this->user,$this->pass);
             
             $this->conexion->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
